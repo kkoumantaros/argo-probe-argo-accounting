@@ -1,13 +1,21 @@
 Name:		argo-probe-argo-accounting
 Release:	1%{?dist}
 Summary:	Monitoring scripts that check accounting service status
-License:	GPLv3+
-
+License:       ASL 2.0
+Version:       0.1.2
 Source:		%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 AutoReqProv:    no
+Group:         Development/System
+Prefix:        %{_prefix}
 Requires:       python-requests
+
+
+
+
+
+
 
 %description
 An ARGO probe to check service availabilty of accounting
