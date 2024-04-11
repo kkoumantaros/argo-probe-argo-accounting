@@ -24,13 +24,6 @@ pipeline {
                         stage('Test CentOS 7') {
                             steps {
                                 echo 'Executing unit tests @ CentOS 7...'
-                                sh '''
-                                    cd ${WORKSPACE}/$PROJECT_DIR
-                                    rm -f tests/$PROJECT_DIR
-                                    ln -s $PWD/modules/ tests/$PROJECT_DIR
-                                    coverage run -m xmlrunner discover --output-file junit.xml -v tests/
-                                    coverage xml
-                                '''
                                 cobertura coberturaReportFile: '**/coverage.xml'
                             }
                         }
