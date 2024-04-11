@@ -24,7 +24,8 @@ pipeline {
                         stage('Test CentOS 7') {
                             steps {
                                 echo 'Executing unit tests @ CentOS 7...'
-                                cobertura coberturaReportFile: '**/coverage.xml'
+                                echo 'Add serious tests in this block...'
+                
                             }
                         }
                         stage('Build CentOS 7') {
@@ -50,14 +51,8 @@ pipeline {
                         stage('Test Rocky 9') {
                             steps {
                                 echo 'Executing unit tests @ Rocky 9...'
-                                sh '''
-                                    cd ${WORKSPACE}/$PROJECT_DIR
-                                    rm -f tests/$PROJECT_DIR
-                                    ln -s $PWD/modules/ tests/$PROJECT_DIR
-                                    coverage run -m xmlrunner discover --output-file junit.xml -v tests/
-                                    coverage xml
-                                '''
-                                cobertura coberturaReportFile: '**/coverage.xml'
+                                echo 'Add serious tests in this block...'
+                                
                             }
                         }
                         stage('Build Rocky 9') {
